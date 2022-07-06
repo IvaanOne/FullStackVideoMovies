@@ -1,0 +1,41 @@
+
+
+.filmDetailDesign {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+.buttonBack {
+
+    height: 2em;
+    width: 5em;
+
+    border-radius: 0.5em;
+
+    background-color: lightskyblue;
+
+    margin-top: 4em;
+}
+
+.botonRent {
+
+    height: 3em;
+    width: 7em;
+
+    background-color: green;
+    cursor: pointer;
+
+    color: white;
+
+    font-weight: bold;
+
+    border-radius: 0.5em;
+
+    margin-top: 4em;
+}

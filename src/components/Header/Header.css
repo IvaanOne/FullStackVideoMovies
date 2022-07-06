@@ -1,0 +1,32 @@
+
+
+.headerDesign {
+    height: 8em;
+
+    background-color: blue;
+
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: flex-end;
+}
+
+.textLink {
+    font-weight: bold;
+    margin-right: 2em;
+    margin-bottom: 1em;
+
+    color: white;   
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+
+.textLink:hover {
+
+    color: grey;
+    transition: 0.5s;
+}
+

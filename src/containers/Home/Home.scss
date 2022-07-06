@@ -1,0 +1,55 @@
+
+@import '../../Global.scss';
+
+/*variables*/
+$negro : black;
+$altura: 20em;
+$tiempo: 0.5s;
+
+
+.homeDesign {
+    .cardFilm {
+        .peliDesign {
+            width: ($altura / 3);
+        }
+    }
+
+}
+
+
+.homeDesign {
+    
+
+    background-color: beige;
+
+    color: black;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(4, auto)
+
+    
+}
+
+.cardFilm {
+    height: $altura;
+    width: 12em;
+
+    margin-bottom: 2em;
+
+    border-radius: 1em;
+
+    background-color: var(--pri1);
+    
+    cursor: pointer;
+    
+    
+
+    &:hover {
+        
+        @include movimiento;
+        
+    }
+}
+

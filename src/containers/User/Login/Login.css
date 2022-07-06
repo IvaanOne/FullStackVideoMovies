@@ -1,0 +1,25 @@
+
+
+.loginDesign {
+    height: 26em;
+
+    background-color: var(--pri5);
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sendButton {
+    height: 2em;
+    width: 5em;
+
+    background-color: purple;
+    color: white;
+
+    margin-top: 4em;
+    border-radius: 0.5em;
+}
