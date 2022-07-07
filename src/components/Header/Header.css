@@ -13,6 +13,28 @@
     align-items: flex-end;
 }
 
+.navBar{
+    background-color: #424242;
+    color: white;
+}
+.searchInput {
+    background-color: #C9C9C9;
+}
+
+.navText{
+    color: white;
+}
+
+.alertButton {
+    background-color: #FCFC62;
+
+}
+
+
+.navbar-brand {
+    margin-left: 2em;
+}
+
 .textLink {
     font-weight: bold;
     margin-right: 2em;
