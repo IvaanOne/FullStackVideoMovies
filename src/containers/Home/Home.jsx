@@ -68,12 +68,12 @@ const Home = () => {
 
         try {
 
-            let peliculas = await axios.get("https://api.themoviedb.org/3/movie/upcoming?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&page=1");
+            let peliculas = await axios.get("https://proyecto-bucador-peliculas.herokuapp.com/api/movies");
             
             //seteo las películas al hook para que se recargue el componente
 
-            setPeliculasDefecto(peliculas.data.results);
-            console.log(peliculas.data.results);
+            setPeliculasDefecto(peliculas.data.data);
+            console.log(peliculas);
             
         } catch (error) {
             console.log(error)
@@ -126,10 +126,11 @@ const Home = () => {
 
                {
                 peliculasDefecto.map(pelicula => {
+                    console.log(pelicula)
                     return(
-                        <div className="cardFilm" key={pelicula.id} onClick={()=>PeliculaEscogida(pelicula)}>
+                        <div className="cardFilm" key={pelicula._id} onClick={()=>PeliculaEscogida(pelicula)}>
                             {pelicula.title}
-                            <img className="peliDesign" src={`https://image.tmdb.org/t/p/w200`+pelicula.poster_path}/>
+                            <img className="peliDesign" src={pelicula.imgLink}/>
 
                         </div>
                     )
