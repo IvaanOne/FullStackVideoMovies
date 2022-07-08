@@ -96,10 +96,10 @@ const Home = () => {
 
                                 <div class="col-md-3 col-sm-6" key={pelicula._id} onClick={() => PeliculaEscogida(pelicula)}>
                                     <div class="card card-block">
-                                        <h4 class="card-title text-right"><i class="material-icons">VIVA BOOTSTRAP</i></h4>
+                                        <h4 class="card-title text-right"><i class="material-icons">CLICK PARA VER MÁS</i></h4>
                                         <img src={pelicula.imgLink} alt="Photo of sunset"></img>
                                         <h5 class="card-title mt-3 mb-3">{pelicula.title}</h5>
-                                        <p class="card-text">{pelicula.length}</p>
+                                        <p class="card-text">{pelicula.genre}<br></br>{pelicula.year}<br></br>{pelicula.length}</p>
                                     </div>
                                 </div>
 
