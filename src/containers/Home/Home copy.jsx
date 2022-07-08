@@ -113,23 +113,13 @@ const Home = () => {
         return (
             <div className='homeDesign'>
 
-                
-               
-               {/* <DatePicker onChange={handlerFecha}/> */}
-               {/* <div>La fecha actual es..: {}</div> */}
-               {/* <div>La fecha escogida es: {JSON.stringify(fecha)}</div> */}
-               {/* <div>Estamos vivos en este mundo cruel.... {diferencia}
-               <ShoppingCartOutlined />
-               </div> */}
-
-               {/* Mapeamos las películas que han venido de la API theMovieDB */}
 
                {
                 peliculasDefecto.map(pelicula => {
                     return(
                         <div className="cardFilm" key={pelicula.id} onClick={()=>PeliculaEscogida(pelicula)}>
                             {pelicula.title}
-                            <img className="peliDesign" src={`https://image.tmdb.org/t/p/w200`+pelicula.poster_path}/>
+                            <img className="peliDesign" src={`https://www.mubis.es/media/covers/194/28526/avatar-original.jpg`}/>
 
                         </div>
                     )
