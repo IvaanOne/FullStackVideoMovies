@@ -28,7 +28,7 @@ const FilmDetail = () => {
 
     useEffect(()=>{
         // console.log(token);
-        // console.log(detallesPelicula);
+        console.log(detallesPelicula);
     },[]);
 
 
@@ -79,7 +79,7 @@ const FilmDetail = () => {
 
                 <div>
 
-                    <img className="peliDesign" src={`https://image.tmdb.org/t/p/w200`+detallesPelicula.poster_path}/>
+                    <img className="peliDesign" src={detallesPelicula.imgLink}/>
                 </div>
 
 

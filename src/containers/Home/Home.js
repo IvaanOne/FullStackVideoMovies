@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Home = () => {
-
+    // let offset = peliculasPaginate * page_size;
     let peliculas = useSelector(searchData);
     let navegador = useNavigate();
     let dispatch = useDispatch();
@@ -25,13 +25,16 @@ const Home = () => {
         navegador(destino)
     };
 
-    const paginate = (page_number) => {
-        return peliculasDefecto.slice((page_number -1) * page_size, page_number * page_size);
-    };
+    // const paginate = (page_number) => {
+    //     setPeliculasPaginate(page_number);
+    //     return peliculasDefecto.slice((page_number -1) * page_size, page_number * page_size);
+    // };
+
+    
 
     //Hook de películas por defecto al entrar en la aplicación
     const [peliculasDefecto, setPeliculasDefecto] = useState([]);
-    const [peliculasPaginate, setPeliculasPaginate] = useState([]);
+    // const [peliculasPaginate, setPeliculasPaginate] = useState(1);
 
 
 
@@ -91,12 +94,12 @@ const Home = () => {
             <div class="container mt-2 tumadre">
                 <div class="row">
                     {
-                        paginate(1).map(pelicula => {
+                        peliculasDefecto.map(pelicula => {
                             return (
 
                                 <div class="col-md-3 col-sm-6" key={pelicula._id} onClick={() => PeliculaEscogida(pelicula)}>
                                     <div class="card card-block">
-                                        <h4 class="card-title text-right"><i class="material-icons">CLICK PARA VER MÁS</i></h4>
+                                        {/* <h4 class="card-title text-right"><i class="material-icons">CLICK PARA VER MÁS</i></h4> */}
                                         <img src={pelicula.imgLink} alt="Photo of sunset"></img>
                                         <h5 class="card-title mt-3 mb-3">{pelicula.title}</h5>
                                         <p class="card-text">{pelicula.genre}<br></br>{pelicula.year}<br></br>{pelicula.length}</p>
@@ -116,9 +119,9 @@ const Home = () => {
                                 <span class="sr-only">Previous</span>
                             </a>
                         </li>
-                        <li class="page-item"><a class="page-link" >1</a></li>
-                        <li class="page-item"><a class="page-link" onClick={()=>{paginate(2); console.log("reconozco el click")}}>2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link">1</a></li>
+                        <li class="page-item"><a class="page-link">2</a></li>
+                        <li class="page-item"><a class="page-link">3</a></li>
                         <li class="page-item">
                             <a class="page-link" href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
