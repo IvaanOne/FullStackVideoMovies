@@ -75,7 +75,6 @@ const Home = () => {
             navegador("/detail");
         }, 500);
 
-        console.log(pelicula);
     }
 
 
