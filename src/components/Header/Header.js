@@ -100,7 +100,7 @@ const Header = () => {
                                     Usuario
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item"  >Perfil</a></li>
+                                    <li><a class="dropdown-item"  onClick={()=>viajar("/profile")}>Perfil</a></li>
                                     <li><a class="dropdown-item" onClick={()=> viajar("/profile")}>Mis alquileres</a></li>
                                     <li><hr class="dropdown-divider"></hr></li>
                                     <li><a class="dropdown-item" onClick={()=>viajar("/admin")}>Panel Admin</a></li>

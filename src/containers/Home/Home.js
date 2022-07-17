@@ -89,7 +89,7 @@ const Home = () => {
 
     if (peliculas[0]?.title) {
         return (
-            <div>marc te odio {peliculas[0]?.title}</div>
+            <div>{peliculas[0]?.title}</div>
         )
     } else if (peliculasDefecto[0]?.title !== '') {
         
