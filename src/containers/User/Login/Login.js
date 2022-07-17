@@ -21,7 +21,7 @@ const Login = () => {
 
     //Handlers
     const updateCredentials = (e) => {
-        setCredentials({ ...credentials, [e.target.name]: e.target.value})
+        setCredentials({...credentials, [e.target.name]: e.target.value})
     }
 
 
@@ -38,7 +38,6 @@ const Login = () => {
     //Funciones
     const logeame = () => {
         
-        console.log("esoty aqui");
         //Primero compruebo que los campos sean correctos
 
         //Esta expresión regular ayuda a validar un email
@@ -76,7 +75,7 @@ const Login = () => {
         setTimeout(() => {
             navegador("/");
         }, 1000)
-        console.log(loginUser());
+        
     };
 
     return (
@@ -98,6 +97,7 @@ const Login = () => {
                                 <input type="password" class="form-control" name='password' title='password' placeholder="*****"  onChange={updateCredentials}></input>
                             </div>
                             <button type="submit" class="form-button button-l margin-b" onClick={()=>logeame()}>Login</button>
+                            <div>{msgError}</div>
 
                             <a class="text-darkyellow" href="#"><small>Has olvidado tu contraseña?</small></a>
                             <p class="text-whitesmoke text-center"><small>No tienes cuenta?</small></p>

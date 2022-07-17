@@ -16,6 +16,7 @@ const Register = (props) => {
         password2: "",
         phone: "",
         adress: "",
+        city: "",
         birth: ""
     });
 
@@ -49,7 +50,7 @@ const Register = (props) => {
 
         //Primero, comprobación de campos vacíos
 
-        let mandatory = ['name', 'surname', 'email', 'password', 'password2', 'phone', 'adress', 'birth'];
+        let mandatory = ['name', 'surname', 'email', 'password', 'password2', 'phone', 'adress', 'city', 'birth'];
 
         for (let field of mandatory) {
             if (datosUser[field] === '') {
@@ -114,7 +115,7 @@ const Register = (props) => {
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Apellido" required=""></input>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Email" required=""></input>
+                                        <input type="email" class="form-control" placeholder="Email" required=""></input>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -127,6 +128,9 @@ const Register = (props) => {
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Direccion" required=""></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Ciudad" required=""></input>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Fecha nacimiento Mes/Dia/Año XX/XX/XXXX" required=""></input>
