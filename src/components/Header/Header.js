@@ -76,7 +76,7 @@ const Header = () => {
         )
 
 
-    } else if (credenciales?.user_role === "Boss") {
+    } else if (credenciales?.user_role === "boss") {
 
         return (
             <nav class="navbar navbar-expand-lg bg-light">

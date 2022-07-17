@@ -1,11 +1,9 @@
 
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './FilmDetail.scss';
 
 import { useNavigate } from 'react-router-dom';
-
 import { useSelector } from 'react-redux';
-
 import { userData } from '../User/userSlice';
 import { takeData } from './detailSlice';
 import axios from 'axios';
@@ -13,6 +11,9 @@ import Home from '../Home/Home';
 
 const FilmDetail = () => {
 
+
+    //HOOK
+    const [msgError, setMsgError] = useState("");
     //Guardamos en otra variable, los datos de redux de las credenciales
 
     let credenciales = useSelector(userData);
@@ -31,41 +32,40 @@ const FilmDetail = () => {
                 
     }, []);
 
+    useEffect(()=>{
+        if (credenciales.token === "") {
+            navigate('/')
+          }
+    });
+
     const volver = () =>{
 
         setTimeout(()=>{
             navigate("/")
         }, 500)
     }
-
-
-    const viajar = (destino) => {
-
-        setTimeout(() => {
-            navigate(destino)
-        }, 200);
-    }
-
+        
     const alquilar = async () => {
         
-        let body = {
-            user_id: credenciales.user_id,
-            film_id: detallesPelicula.id
-            //fechas...
-            //precio...
-        }
+        try {
+            
+            let body = {
+                title: detallesPelicula.title
+            };
 
-        //Llamada a axios....... 
-        // try {
-
-        //     let resultado = await axios.post("urlendpointalquiler",body);
-
-        // } catch (error) {
-        //     console.log(error);
-        // }
-
+            let config = {
+                headers: { Authorization: `Bearer ${credenciales.token}` }
+              };
+      
+            let resultado = await axios.post(`https://proyecto-bucador-peliculas.herokuapp.com/api/orders/create`, body, config)
+            
+            setMsgError(`Has alquilado ${resultado.title} `)
+            
+        } catch (error) {
+            setMsgError(`${error.response.data.message}`)
+            }
     }
-
+    
     return (
         <section class="dark">
             <div class="container py-4 detailDesign">
@@ -88,7 +88,7 @@ const FilmDetail = () => {
                         <ul class="postcard__tagbox">
                             <li class="tag__item"><i class="fas fa-tag mr-2"></i>{detallesPelicula.genre}</li>
                             <li class="tag__item"><i class="fas fa-clock mr-2"></i>{detallesPelicula.length}</li>
-                            <li class="tag__item play yellow">
+                            <li class="tag__item play yellow" onClick={()=>alquilar()}>
                                 <a href="#"><i class="fas fa-play mr-2"></i>Alquilar</a>
                             </li>
                         </ul>

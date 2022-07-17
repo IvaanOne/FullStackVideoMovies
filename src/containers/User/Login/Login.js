@@ -50,18 +50,18 @@ const Login = () => {
 
         //Esta expresión regular ayuda a validar un password (numero + letras en este caso)
 
-        if (credentials.password.length > 4) {
+        // if (credentials.password.length > 4) {
 
-            if (! /[\d()+-]/g.test(credentials.password)) {
+        //     if (! /[\d()+-]/g.test(credentials.password)) {
 
-                setMsgError('Introduce un password válido');
-                return;
-            };
+        //         setMsgError('Introduce un password válido');
+        //         return;
+        //     };
 
-        } else {
-            setMsgError('El password debe de tener como mínimo 4 caracteres');
-            return;
-        }
+        // } else {
+        //     setMsgError('El password debe de tener como mínimo 4 caracteres');
+        //     return;
+        // }
 
 
         //Por si acaso teníamos algo referenciado como error, lo limpiamos
