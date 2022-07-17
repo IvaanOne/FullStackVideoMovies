@@ -115,11 +115,7 @@ const Register = (props) => {
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Apellido" name='surname' required="" onChange={updateUserData}></input>
                                     <div class="form-group">
-<<<<<<< HEAD
                                         <input type="text" class="form-control" placeholder="Email" name='email' required="" onChange={updateUserData}></input>
-=======
-                                        <input type="email" class="form-control" placeholder="Email" required=""></input>
->>>>>>> 9ed4d29f27aefcac4031e76cfd5b155100b3314f
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -134,14 +130,7 @@ const Register = (props) => {
                                         <input type="text" class="form-control" placeholder="Direccion" required="" name='adress' onChange={updateUserData}></input>
                                     </div>
                                     <div class="form-group">
-<<<<<<< HEAD
                                         <input type="text" class="form-control" placeholder="Fecha nacimiento Mes/Dia/Año XX/XX/XXXX" name='birth' required="" onChange={updateUserData}></input>
-=======
-                                        <input type="text" class="form-control" placeholder="Ciudad" required=""></input>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Fecha nacimiento Mes/Dia/Año XX/XX/XXXX" required=""></input>
->>>>>>> 9ed4d29f27aefcac4031e76cfd5b155100b3314f
                                     </div>
                                 </div>
                                 <button type="submit" class="form-button button-l margin-b registerButon" onClick={() => Registrame()}>Registrar</button>

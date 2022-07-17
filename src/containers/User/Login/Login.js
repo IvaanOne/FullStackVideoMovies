@@ -38,11 +38,8 @@ const Login = () => {
     //Funciones
     const logeame = () => {
         
-<<<<<<< HEAD
         console.log("esoty aqui");
         console.log(credentials);
-=======
->>>>>>> 9ed4d29f27aefcac4031e76cfd5b155100b3314f
         //Primero compruebo que los campos sean correctos
 
         //Esta expresión regular ayuda a validar un email
@@ -78,10 +75,6 @@ const Login = () => {
         setTimeout(() => {
             navegador("/");
         }, 1000)
-<<<<<<< HEAD
-=======
-        
->>>>>>> 9ed4d29f27aefcac4031e76cfd5b155100b3314f
     };
 
     return (
@@ -100,16 +93,8 @@ const Login = () => {
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" name='password' title='password' placeholder="*****"  onChange={updateCredentials}></input>
-<<<<<<< HEAD
                             </div>        
                             <a class="text-darkyellow" ><small>Has olvidado tu contraseña?</small></a>
-=======
-                            </div>
-                            <button type="submit" class="form-button button-l margin-b" onClick={()=>logeame()}>Login</button>
-                            <div>{msgError}</div>
-
-                            <a class="text-darkyellow" href="#"><small>Has olvidado tu contraseña?</small></a>
->>>>>>> 9ed4d29f27aefcac4031e76cfd5b155100b3314f
                             <p class="text-whitesmoke text-center"><small>No tienes cuenta?</small></p>
                             <a class="text-darkyellow" ><small>Regístrate</small></a>
                         </form>
