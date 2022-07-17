@@ -65,7 +65,7 @@ const Profile = () => {
                 </div>
                 <div className="profileDesignRight">
                     <input className='designInputProfile mr5 mt5' value={perfilUsuario.user_address} type='text' name='user_address' title='address' disabled lenght='30' />
-                    <input className='designInputProfile mr5 mt5' value={perfilUsuario.user_city} type='text' name='user_city' title='city' disabled lenght='30' />
+                    <input className='designInputProfile mr5 mt5' value={perfilUsuario.user_birth} type='text' name='user_city' title='city' disabled lenght='30' />
                     <input className='designInputProfile mr5 mt5' value={perfilUsuario.user_mobile} type='text' name='user_mobile' title='mobile' disabled lenght='30' />
                 </div>
             </div>
