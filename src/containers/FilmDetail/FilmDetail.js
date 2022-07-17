@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { userData } from '../User/userSlice';
 import { takeData } from './detailSlice';
 import axios from 'axios';
+import Home from '../Home/Home';
 
 const FilmDetail = () => {
 
@@ -27,9 +28,15 @@ const FilmDetail = () => {
     //Función useEffect para cuando el componente se ha montado
 
     useEffect(() => {
-        // console.log(token);
-        console.log(detallesPelicula);
+                
     }, []);
+
+    const volver = () =>{
+
+        setTimeout(()=>{
+            navigate("/")
+        }, 500)
+    }
 
 
     const viajar = (destino) => {
@@ -40,19 +47,13 @@ const FilmDetail = () => {
     }
 
     const alquilar = async () => {
-
-        console.log(credenciales);
-
-
+        
         let body = {
             user_id: credenciales.user_id,
             film_id: detallesPelicula.id
             //fechas...
             //precio...
         }
-
-        console.log(body);
-
 
         //Llamada a axios....... 
         // try {
@@ -93,7 +94,7 @@ const FilmDetail = () => {
                         </ul>
                     </div>
                 </article>
-                    <a href="#"><i class="fas fa-play mr-2"></i>Volver</a>
+                    <a href="#" onClick={()=>volver()}><i class="fas fa-play mr-2"></i>Volver</a>
             </div>
         </section>
     )
