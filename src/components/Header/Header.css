@@ -2,7 +2,7 @@
 
 .headerDesign {
     height: 8em;
-
+    position: fixed;
     background-color: blue;
 
     color: white;

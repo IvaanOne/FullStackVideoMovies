@@ -35,7 +35,7 @@ export const userSlice = createSlice({
 export const loginUser = (body) => async (dispatch) => {
     try {
       
-      const user = await axios.post("https://buscadordepeliculas.herokuapp.com/api/auth/login",body);
+      const user = await axios.post("https://proyecto-bucador-peliculas.herokuapp.com/api/login",body);
       
       let decodificada = jwt(user.data.token);
 

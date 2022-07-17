@@ -21,7 +21,7 @@ const Login = () => {
 
     //Handlers
     const updateCredentials = (e) => {
-        setCredentials({ ...credentials, [e.target.name]: e.target.value })
+        setCredentials({ ...credentials, [e.target.name]: e.target.value})
     }
 
 
@@ -29,15 +29,16 @@ const Login = () => {
     useEffect(() => {
         //Comprobamos si poseemos token...
         console.log("soy credenciales", credenciales);
-
+        
         if (credenciales?.token !== '') {
             navegador("/");
         };
     }, []);
-
+    
     //Funciones
     const logeame = () => {
-
+        
+        console.log("esoty aqui");
         //Primero compruebo que los campos sean correctos
 
         //Esta expresión regular ayuda a validar un email
@@ -61,6 +62,7 @@ const Login = () => {
             return;
         }
 
+
         //Por si acaso teníamos algo referenciado como error, lo limpiamos
         setMsgError("");
 
@@ -74,7 +76,7 @@ const Login = () => {
         setTimeout(() => {
             navegador("/");
         }, 1000)
-
+        console.log(loginUser());
     };
 
     return (
@@ -87,14 +89,15 @@ const Login = () => {
                     <h3 class="text-whitesmoke">Bienvenido de nuevo!</h3>
                     <p class="text-whitesmoke">Login</p>
                     <div class="container-content">
+                    <pre>{JSON.stringify(credentials, null,2)}</pre>
                         <form class="margin-t">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Usuario" required=""></input>
+                                <input type="email" class="form-control" name='email' title='email' placeholder="Usuario" onChange={updateCredentials}></input>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="*****" required=""></input>
+                                <input type="password" class="form-control" name='password' title='password' placeholder="*****"  onChange={updateCredentials}></input>
                             </div>
-                            <button type="submit" class="form-button button-l margin-b">Login</button>
+                            <button type="submit" class="form-button button-l margin-b" onClick={()=>logeame()}>Login</button>
 
                             <a class="text-darkyellow" href="#"><small>Has olvidado tu contraseña?</small></a>
                             <p class="text-whitesmoke text-center"><small>No tienes cuenta?</small></p>
