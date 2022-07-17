@@ -60,9 +60,9 @@ export const updateUser = (datosUsuario,perfilUsuario) => async (dispatch) => {
   try {
 
       let body = {
-        name: perfilUsuario.user_name,
-        email: perfilUsuario.user_email,
-        password: perfilUsuario.user_password
+        name: perfilUsuario.name,
+        email: perfilUsuario.email,
+        password: perfilUsuario.password
       }
 
       console.log("soy el maldito body", body);

@@ -124,7 +124,7 @@ const Header = () => {
             </nav>
         )
 
-    } else if (credenciales?.user_role === "Client") {
+    } else if (credenciales?.user_role === "client") {
         return (
             <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container-fluid navBar">

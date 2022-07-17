@@ -109,27 +109,27 @@ const Register = (props) => {
                         <div class="container-content">
                             <form class="margin-t">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Nombre" required=""></input>
+                                    <input type="text" class="form-control" placeholder="Nombre" name='name' required="" onChange={updateUserData}></input>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Apellido" required=""></input>
+                                    <input type="text" class="form-control" placeholder="Apellido" name='surname' required="" onChange={updateUserData}></input>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Email" required=""></input>
+                                        <input type="text" class="form-control" placeholder="Email" name='email' required="" onChange={updateUserData}></input>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Contraseña" required=""></input>
+                                    <input type="password" class="form-control" placeholder="Contraseña" name='password' required="" onChange={updateUserData}></input>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Repetir contraseña" required=""></input>
+                                    <input type="text" class="form-control" placeholder="Repetir contraseña" name='password2' required="" onChange={updateUserData}></input>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Teléfono" required=""></input>
+                                        <input type="text" class="form-control" placeholder="Teléfono" required="" name='phone' onChange={updateUserData}></input>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Direccion" required=""></input>
+                                        <input type="text" class="form-control" placeholder="Direccion" required="" name='adress' onChange={updateUserData}></input>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Fecha nacimiento Mes/Dia/Año XX/XX/XXXX" required=""></input>
+                                        <input type="text" class="form-control" placeholder="Fecha nacimiento Mes/Dia/Año XX/XX/XXXX" name='birth' required="" onChange={updateUserData}></input>
                                     </div>
                                 </div>
                                 <button type="submit" class="form-button button-l margin-b registerButon" onClick={() => Registrame()}>Registrar</button>

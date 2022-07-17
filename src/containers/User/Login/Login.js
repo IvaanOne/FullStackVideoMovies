@@ -31,7 +31,7 @@ const Login = () => {
         console.log("soy credenciales", credenciales);
         
         if (credenciales?.token !== '') {
-            navegador("/");
+            navegador("/register");
         };
     }, []);
     
@@ -39,12 +39,13 @@ const Login = () => {
     const logeame = () => {
         
         console.log("esoty aqui");
+        console.log(credentials);
         //Primero compruebo que los campos sean correctos
 
         //Esta expresión regular ayuda a validar un email
         if (! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(credentials.email)) {
             setMsgError('Introduce un e-mail válido');
-            return;
+            
         }
 
         //Esta expresión regular ayuda a validar un password (numero + letras en este caso)
@@ -64,19 +65,16 @@ const Login = () => {
 
 
         //Por si acaso teníamos algo referenciado como error, lo limpiamos
-        setMsgError("");
+        
 
         //Dispatch es el método de redux que ejecuta el reducer
-        dispatch(loginUser({
-            email: credentials.email,
-            password: credentials.password
-        }
+        dispatch(loginUser({email: credentials.email,
+            password: credentials.password}
         ));
-
+        
         setTimeout(() => {
             navegador("/");
         }, 1000)
-        console.log(loginUser());
     };
 
     return (
@@ -89,21 +87,19 @@ const Login = () => {
                     <h3 class="text-whitesmoke">Bienvenido de nuevo!</h3>
                     <p class="text-whitesmoke">Login</p>
                     <div class="container-content">
-                    <pre>{JSON.stringify(credentials, null,2)}</pre>
                         <form class="margin-t">
                             <div class="form-group">
-                                <input type="email" class="form-control" name='email' title='email' placeholder="Usuario" onChange={updateCredentials}></input>
+                                <input type="email" class="form-control" name='email' title='email' placeholder="email" onChange={updateCredentials}></input>
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" name='password' title='password' placeholder="*****"  onChange={updateCredentials}></input>
-                            </div>
-                            <button type="submit" class="form-button button-l margin-b" onClick={()=>logeame()}>Login</button>
-
-                            <a class="text-darkyellow" href="#"><small>Has olvidado tu contraseña?</small></a>
+                            </div>        
+                            <a class="text-darkyellow" ><small>Has olvidado tu contraseña?</small></a>
                             <p class="text-whitesmoke text-center"><small>No tienes cuenta?</small></p>
-                            <a class="text-darkyellow" href="#"><small>Regístrate</small></a>
+                            <a class="text-darkyellow" ><small>Regístrate</small></a>
                         </form>
-                        <p class="margin-t text-whitesmoke"><small> Your Name &copy; 2022</small> </p>
+                        <button type="submit" class="form-button button-l margin-b" onClick={()=>logeame()}>Login</button>
+                        <p class="margin-t text-whitesmoke"><small> {msgError} </small> </p>
                     </div>
                 </div>
             </body>
