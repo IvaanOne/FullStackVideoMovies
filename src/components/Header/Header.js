@@ -1,16 +1,21 @@
 
 
-import React, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 import './Header.css';
 
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { userData, logOut } from '../../containers/User/userSlice';
 import { searchFilm } from './searchSlice';
+let searcher = "";
+
+
 
 const Header = () => {
 
     const [criterio, setCriterio] = useState("");
+    const [searcher, setSearcher] = useState("");
+    
 
     //Variable
     const credenciales = useSelector(userData);
@@ -21,6 +26,9 @@ const Header = () => {
     const dispatch = useDispatch();
 
     //Handlers
+    const filterFilm = (e) => {
+        setSearcher(e);
+    }
     const busca = (e) => {
 
         //Aqui procedemos a llamar a la funcion axios que tenemos en el slice de redux que es quien 
@@ -53,12 +61,12 @@ const Header = () => {
                             </li>
                         </ul>
                         <form class="d-flex me-5" role="search">
-                            <input class="form-control me-2 searchInput" type="search" placeholder="Busca una película..." aria-label="Search"></input>
+                            <input class="form-control me-2 searchInput" type="search" onChange={(e)=>{filterFilm(e.target.value)}} placeholder="Busca una película..." aria-label="Search"></input>
                             <button class="btn btn-outline-secondary me-5 navText" type="submit">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                 </svg></button>
-                            <button class="btn btn-outline-secondary me-3 navText" type="submit">Login</button>
+                            <button onClick={()=>navegador("/login")} class="btn btn-outline-secondary me-3 navText" type="submit">Login</button>
                             <button class="btn btn-warning alertButton" type="submit">Registrarse</button>
 
                         </form>
@@ -160,9 +168,13 @@ const Header = () => {
                     </div>
                 </div>
             </nav>
+            
         )
+        
     }
+    
 
 };
 
 export default Header;
+export let searchContext = createContext(searcher);

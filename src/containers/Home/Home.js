@@ -1,6 +1,6 @@
 
 
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import { DatePicker } from 'antd';
@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { searchData } from '../../components/Header/searchSlice';
 import { keepFilm } from '../FilmDetail/detailSlice';
 import { useNavigate } from 'react-router-dom';
+import { searchContext } from '../../components/Header/Header';
 
 
 
@@ -20,6 +21,7 @@ const Home = () => {
     let navegador = useNavigate();
     let dispatch = useDispatch();
     let page_size = 8;
+    let arraySearch = [];
 
     const viajar = (destino) => {
         navegador(destino)
@@ -34,7 +36,7 @@ const Home = () => {
 
     //Hook de películas por defecto al entrar en la aplicación
     const [peliculasDefecto, setPeliculasDefecto] = useState([]);
-    // const [peliculasPaginate, setPeliculasPaginate] = useState(1);
+    const [searcher, setSearcher] = useState(searchContext);
 
 
 
@@ -47,12 +49,14 @@ const Home = () => {
     const PeliculasApi = async () => {
 
         try {
+            
 
             let peliculas = await axios.get("https://proyecto-bucador-peliculas.herokuapp.com/api/movies");
 
             //seteo las películas al hook para que se recargue el componente
 
             setPeliculasDefecto(peliculas.data.data);
+            arraySearch.push(peliculasDefecto);
 
         } catch (error) {
             console.log(error)
@@ -100,7 +104,7 @@ const Home = () => {
                                 <div class="col-md-3 col-sm-6" key={pelicula._id} onClick={() => PeliculaEscogida(pelicula)}>
                                     <div class="card card-block">
                                         {/* <h4 class="card-title text-right"><i class="material-icons">CLICK PARA VER MÁS</i></h4> */}
-                                        <img src={pelicula.imgLink} alt="Photo of sunset"></img>
+                                        <img src={pelicula.imgLink} alt="Movie preview"></img>
                                         <h5 class="card-title mt-3 mb-3">{pelicula.title}</h5>
                                         <p class="card-text">{pelicula.genre}<br></br>{pelicula.year}<br></br>{pelicula.length}</p>
                                     </div>
