@@ -12,6 +12,7 @@ import Home from './containers/Home/Home';
 import Login from './containers/User/Login/Login';
 import Register from './containers/User/Register/Register';
 import Profile from './containers/User/Profile/Profile';
+import Admin from './containers/User/Admin/Admin'
 import FilmDetail from './containers/FilmDetail/FilmDetail';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { searchContext } from "./components/Header/Header";
@@ -34,6 +35,7 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/profile" element={<Profile/>}/>
+          <Route path= '/admin' element= {<Admin/>}/>
           <Route path="/detail" element={<FilmDetail/>}/>
 
         </Routes>

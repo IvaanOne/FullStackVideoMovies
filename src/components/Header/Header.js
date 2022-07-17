@@ -3,7 +3,7 @@
 import React, { useState, createContext } from 'react';
 import './Header.css';
 
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { userData, logOut } from '../../containers/User/userSlice';
 import { searchFilm } from './searchSlice';
@@ -103,7 +103,7 @@ const Header = () => {
                                     <li><a class="dropdown-item"  >Perfil</a></li>
                                     <li><a class="dropdown-item" onClick={()=> viajar("/profile")}>Mis alquileres</a></li>
                                     <li><hr class="dropdown-divider"></hr></li>
-                                    <li><a class="dropdown-item" >Panel Admin</a></li>
+                                    <li><a class="dropdown-item" onClick={()=>viajar("/admin")}>Panel Admin</a></li>
                                 </ul>
                             </li>
                         </ul>
