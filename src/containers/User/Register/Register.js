@@ -21,7 +21,6 @@ const Register = (props) => {
     });
 
     const [msgError, setMsgError] = useState("");
-
     const [congratulations, setCongratulations] = useState("");
 
     //Variables
@@ -35,20 +34,15 @@ const Register = (props) => {
     //Funciones del componente (useEffect)
 
     useEffect(() => {
-        //UseEffect equivalente a componentDidMount (montado)
-
+        
     }, [])
 
     useEffect(() => {
-        //UseEffect equivalente a componentDidUpdate (actualizado)
-
+        
     })
 
     //Funciones
-
     const Registrame = async () => {
-
-        //Primero, comprobación de campos vacíos
 
         let mandatory = ['name', 'surname', 'email', 'password', 'password2', 'phone', 'adress', 'city', 'birth'];
 
@@ -64,7 +58,7 @@ const Register = (props) => {
             setMsgError('introduce un email válido!');
             return;
         }
-        
+
         //Comprobamos que el password esté repetido correctamente
 
         if (datosUser.password !== datosUser.password2) {
