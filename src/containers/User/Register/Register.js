@@ -59,6 +59,12 @@ const Register = (props) => {
             }
         }
 
+        //Con esto válidamos que el email este correctamente.
+        if (!datosUser.email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)) {
+            setMsgError('introduce un email válido!');
+            return;
+        }
+        
         //Comprobamos que el password esté repetido correctamente
 
         if (datosUser.password !== datosUser.password2) {
@@ -66,26 +72,25 @@ const Register = (props) => {
             return;
         }
 
-        //Comprobaciones de formato de datos...
+        //La pasword tiene que ser de un tamaño especificado, en este caso entre 6 y 10 digitos.
+        if (datosUser.password.length < 6 || datosUser.password.length > 10) {
 
+            setMsgError("La password tiene que ser entre 6 y 10 digitos");
+            return;
+        }
+        
+        
+        //axios....comunicamos con el backend
+        let resultado = await axios.post("https://proyecto-bucador-peliculas.herokuapp.com/api/register",datosUser);
 
-        //Limpiamos error
-        setMsgError(false);
+        if(resultado.status === 200){
+                setCongratulations(true);
 
-        // try {
-
-        //     //axios....comunicamos con el backend
-
-        //     // let resultado = await axios.post("endpointregister",datosUser);
-
-        setCongratulations(true);
-
-        setTimeout(() => {
+            setTimeout(() => {
             navigate("/login");
-        }, 2000);
-        // } catch (error){
-        //     console.log(error)
-        // }
+            }, 2000);
+        }
+        
     }
 
 
@@ -93,7 +98,7 @@ const Register = (props) => {
 
         return (
             <div className="registerDesign">
-                Bienvenido a nuestra aplicación, {datosUser.name}....
+                Bienvenido a nuestra aplicación, {datosUser.name}
             </div>
         )
 
@@ -122,7 +127,7 @@ const Register = (props) => {
                                     <input type="password" class="form-control" placeholder="Contraseña" name='password' required="" onChange={updateUserData}></input>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Repetir contraseña" name='password2' required="" onChange={updateUserData}></input>
+                                    <input type="password" class="form-control" placeholder="Repetir contraseña" name='password2' required="" onChange={updateUserData}></input>
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Teléfono" required="" name='phone' onChange={updateUserData}></input>
                                     </div>
@@ -130,13 +135,16 @@ const Register = (props) => {
                                         <input type="text" class="form-control" placeholder="Direccion" required="" name='adress' onChange={updateUserData}></input>
                                     </div>
                                     <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Ciudad" required="" name='city' onChange={updateUserData}></input>
+                                    </div>
+                                    <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Fecha nacimiento Mes/Dia/Año XX/XX/XXXX" name='birth' required="" onChange={updateUserData}></input>
                                     </div>
                                 </div>
-                                <button type="submit" class="form-button button-l margin-b registerButon" onClick={() => Registrame()}>Registrar</button>
-
                                 <a class="text-darkyellow" href="#"><small>{msgError}</small></a>
                             </form>
+                                <button type="submit" class="form-button button-l margin-b registerButon" onClick={() => Registrame()}>Registrar</button>
+
                         </div>
                     </div>
                 </body>
